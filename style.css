@@ -6,5 +6,16 @@
   width: 90vw;
   margin: auto;
   margin-top: 5vh;
+  border: 12px solid #ff9f1c;
+}
+
+.gridSquare {
+  height: 25%;
+  width: 25%;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  background-color: #41EAD4;
+  border: 1px solid #F71735;
 }
 
