@@ -1,0 +1,10 @@
+/* -- TOP: Etch-a-Sketch -- */
+
+.container {
+  background-color: #011627;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  margin-top: 5vh;
+}
+
