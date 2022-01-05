@@ -2,8 +2,16 @@
 
 const cont = document.querySelector('.container');
 
-let newSquare = document.createElement('div');
+let num = 16;
 
-newSquare.classList.add('gridSquare');
-
-cont.appendChild(newSquare);
+for (let i = 0; i < num; i++) {
+  let sqId = i + 1;
+  let sqHeight = (90 / num) + "vh";
+  let sqWidth = (90 / num) + "vw";
+  const newSquare = document.createElement("div");
+  newSquare.classList.add("gridSquare");
+  newSquare.setAttribute("id", sqId);
+  // newSquare.setAttribute("height", sqHeight);
+  // newSquare.setAttribute("width", sqWidth);
+  cont.appendChild(newSquare);
+}
