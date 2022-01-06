@@ -33,13 +33,20 @@ for (let j = 0; j < colContainer.length; j++) {
     const columnUnit = document.createElement("div");
     let columnNum = "colNum" + k;
 
-    // height and width offset by 2 for borders
+    // width offset by 2 for borders
     const columnUnitWidth = (colWidth / columnCount) - 2;
-    // const columnUnitHeight = colHeight
 
     columnUnit.classList.add("gridUnit", columnNum);
     columnUnit.setAttribute("style", `height: ${colHeight}; width: ${columnUnitWidth}; flex: 1 1 0`);
     colContainer[j].appendChild(columnUnit);
   }
 }
+
+let gridUnit = document.querySelectorAll("div.gridUnit");
+
+gridUnit.forEach(gridSquare => {
+  gridSquare.addEventListener('mouseover', () => {
+    gridSquare.classList.add("mark");
+  });
+});
 
