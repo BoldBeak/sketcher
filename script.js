@@ -13,7 +13,7 @@ for (let i = 0; i < rowCount; i++) {
   let rowHeight = (contHeight / rowCount) - 2;
 
   row.classList.add(`flexRow`, rowNum);
-  row.setAttribute("style", `height: ${rowHeight}px`);
+  row.setAttribute("style", `height: ${rowHeight}px; flex: 1 1 0`);
   cont.appendChild(row);
 }
 
