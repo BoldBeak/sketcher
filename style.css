@@ -14,8 +14,10 @@
   border: 12px solid #ff9f1c;
 }
 
-.gridSquare,
+.gridUnit,
 .flexRow {
+  display: flex;
+  flex-direction: row;
   background-color: #41EAD4;
   border: 1px solid #F71735;
 }
