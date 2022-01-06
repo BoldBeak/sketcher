@@ -19,47 +19,27 @@ for (let i = 0; i < rowCount; i++) {
   cont.appendChild(row);
 }
 
+let colContainer = document.querySelectorAll('.flexRow');
 
+// for each row (colContainer) ----->>
+for (let j = 0; j < colContainer.length; j++) {
 
-// function makeColumns(columnCount) {
-  let colContainer = document.querySelectorAll('.flexRow');
+  // add the number of divs specified by columnCount
+  for (let k = 0; k < columnCount; k++) {
+    // get height and width of each row
+    const colHeight = colContainer[j].clientHeight;
+    const colWidth = colContainer[j].clientWidth;
 
-  // for each row (colContainer) ----->>
-  for (let j = 0; j < colContainer.length; j++) {
+    const columnUnit = document.createElement("div");
+    let columnNum = "colNum" + k;
 
-    // add the number of divs specified by columnCount
-    for (let k = 0; k < columnCount; k++) {
+    // height and width offset by 2 for borders
+    const columnUnitWidth = (colWidth / columnCount) - 2;
+    // const columnUnitHeight = colHeight
 
-      // get height and width of each row
-      const colHeight = colContainer[j].clientHeight;
-      const colWidth = colContainer[j].clientWidth;
-
-      const columnUnit = document.createElement("div");
-      let columnNum = "colNum" + j;
-
-      // height and width offset by 2 for borders
-      const columnUnitWidth = (colWidth / columnCount) - 2;
-      const columnUnitHeight = colHeight - 2
-
-      columnUnit.classList.add("gridUnit", columnNum);
-      columnUnit.setAttribute("style", `height: ${columnUnitHeight}; width: ${columnUnitWidth}; flex: 1 1 0`);
-      colContainer[j].appendChild(columnUnit);
-    }
+    columnUnit.classList.add("gridUnit", columnNum);
+    columnUnit.setAttribute("style", `height: ${colHeight}; width: ${columnUnitWidth}; flex: 1 1 0`);
+    colContainer[j].appendChild(columnUnit);
   }
-//}
+}
 
-// number of squares per side in grid
-// let num = 16;
-
-// for (let i = 0; i < num * num; i++) {
-//   let sqId = `sqNum${i + 1}`;
-//   let sqHeight = (contHeight / num) - 2;
-//   let sqWidth = (contWidth / num) - 2;
-//   const newSquare = document.createElement("div");
-
-//   newSquare.classList.add("gridSquare");
-//   newSquare.setAttribute("id", sqId);
-  
-//   newSquare.setAttribute("style", `height: ${sqHeight}px; width: ${sqWidth}px`)
-//   cont.appendChild(newSquare);
-// }
