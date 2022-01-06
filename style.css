@@ -14,11 +14,13 @@
   border: 12px solid #ff9f1c;
 }
 
-.gridUnit,
+.gridUnit {
+  border: 1px dashed #011627;
+}
 .flexRow {
   display: flex;
   flex-direction: row;
   background-color: #41EAD4;
-  border: 1px solid #F71735;
+  /* border: 1px solid #F71735; */
 }
 
