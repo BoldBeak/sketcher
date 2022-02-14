@@ -1,5 +1,7 @@
 //--- TOP: Etch-a-Sketch ---
 
+
+//--- Begin Initial Grid Creation ---
 const cont = document.querySelector('.container');
 const contHeight = cont.clientHeight;
 const contWidth = cont.clientWidth;
