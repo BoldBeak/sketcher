@@ -51,4 +51,18 @@ gridUnit.forEach(gridSquare => {
     gridSquare.classList.add("mark");
   });
 });
+// --- End Grid Creation ---
+
+// --- Begin Button Creation ---
+
+const btnCont = document.createElement('div');
+btnCont.classList.add('btnContainer');
+
+const clearBtn = document.createElement('button');
+clearBtn.classList.add('clearButton');
+
+btnCont.appendChild(clearBtn);
+
+cont.insertAdjacentElement('beforebegin', btnCont);
+
 
