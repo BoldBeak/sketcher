@@ -1,10 +1,30 @@
 //--- TOP: Etch-a-Sketch ---
 
-const cont = document.querySelector('.container');
-const contHeight = cont.clientHeight;
-const contWidth = cont.clientWidth;
-
 /* container should be squared to the lesser of the height or width of the viewport */
+
+let winHi = window.visualViewport.height;
+console.log(winHi);
+let winWi = window.visualViewport.width;
+console.log(winWi);
+
+function findSize(h, w) {
+  if (h == w) {
+    return Math.floor(h);
+  } else if (h > w) {
+    return Math.floor(w);
+  } else if (w > h) {
+    return Math.floor(h);
+  }
+}
+
+
+
+
+const cont = document.querySelector('.container');
+const contSide = findSize(winHi, winWi);
+
+let contHeight = cont.setAttribute('style', `height: calc(.9 * (${contSide}px - 30px)); width: calc(.9 * (${contSide}px - 30px))`);
+
 
 let rowCount = 16;
 let columnCount = 16;
@@ -12,8 +32,6 @@ let columnCount = 16;
 for (let i = 0; i < rowCount; i++) {
   const row = document.createElement("div");
   let rowNum = "rowNum" + i;
-
-  
 
   // rowHeight subtracts 2 to offset width of border (top + bottom);
   const rowHeight = (contHeight / rowCount) - 2;
