@@ -1,12 +1,13 @@
 //--- TOP: Etch-a-Sketch ---
 
-/* container should be squared to the lesser of the height or width of the viewport */
+//get size of window to determine length of side
 
 let winHi = window.visualViewport.height;
 console.log(winHi);
 let winWi = window.visualViewport.width;
 console.log(winWi);
 
+// FIXME: Redo as ternary?
 function findSize(h, w) {
   if (h == w) {
     return Math.floor(h);
@@ -17,18 +18,17 @@ function findSize(h, w) {
   }
 }
 
-
-
-
+// set size of container
 const cont = document.querySelector('.container');
 const contSide = findSize(winHi, winWi);
 
 let contHeight = cont.setAttribute('style', `height: calc(.9 * (${contSide}px - 30px)); width: calc(.9 * (${contSide}px - 30px))`);
 
-
+// set number of squares per side
 let rowCount = 16;
-let columnCount = 16;
+let columnCount = rowCount;
 
+// create rows
 for (let i = 0; i < rowCount; i++) {
   const row = document.createElement("div");
   let rowNum = "rowNum" + i;
@@ -41,6 +41,7 @@ for (let i = 0; i < rowCount; i++) {
   cont.appendChild(row);
 }
 
+// subdivide rows into columns/squares
 let colContainer = document.querySelectorAll('.flexRow');
 
 // for each row (colContainer) ----->>
@@ -64,6 +65,7 @@ for (let j = 0; j < colContainer.length; j++) {
   }
 }
 
+// select squares and change their color
 let gridUnit = document.querySelectorAll("div.gridUnit");
 
 gridUnit.forEach(gridSquare => {
