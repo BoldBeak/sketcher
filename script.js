@@ -4,12 +4,16 @@ const cont = document.querySelector('.container');
 const contHeight = cont.clientHeight;
 const contWidth = cont.clientWidth;
 
+/* container should be squared to the lesser of the height or width of the viewport */
+
 let rowCount = 16;
 let columnCount = 16;
 
 for (let i = 0; i < rowCount; i++) {
   const row = document.createElement("div");
   let rowNum = "rowNum" + i;
+
+  
 
   // rowHeight subtracts 2 to offset width of border (top + bottom);
   const rowHeight = (contHeight / rowCount) - 2;
