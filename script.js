@@ -22,7 +22,7 @@ function findSize(h, w) {
 const cont = document.querySelector('.container');
 const contSide = findSize(winHi, winWi);
 
-let contHeight = cont.setAttribute('style', `height: calc(.9 * (${contSide}px - 30px)); width: calc(.9 * (${contSide}px - 30px))`);
+let contHeight = cont.setAttribute('style', `height: calc(.75 * (${contSide}px - 30px)); width: calc(.75 * (${contSide}px - 30px))`);
 
 // set number of squares per side
 let rowCount = 16;
@@ -74,3 +74,5 @@ gridUnit.forEach(gridSquare => {
   });
 });
 
+
+//Add a button prompting for size
