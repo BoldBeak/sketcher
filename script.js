@@ -76,3 +76,11 @@ gridUnit.forEach(gridSquare => {
 
 
 //Add a button prompting for size
+const promptCont = document.createElement('div');
+const promptButton = document.createElement('button');
+const docBody = document.querySelector("body");
+
+promptCont.classList.add("promptContainer");
+promptCont.setAttribute("style", `height: 20vh; width: calc(.75 * ${contSide}px); background-color: #011627; margin: auto`);
+
+docBody.insertBefore(promptCont, cont);
