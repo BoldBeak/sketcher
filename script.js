@@ -86,12 +86,17 @@ promptCont.setAttribute("style", `height: 12vh; width: calc(.75 * ${contSide}px)
 // create button
 const promptButton = document.createElement('button');
 promptButton.innerText = "How many squares per side?";
-promptButton.addEventListener("click", () => rowCount = askSize());
+// promptButton.addEventListener("click", () => rowCount = askSize());
+promptButton.addEventListener("click", resetGrid);
 promptCont.appendChild(promptButton);
 
 // insert button container
 const docBody = document.querySelector("body");
 docBody.insertBefore(promptCont, cont);
+
+function resetGrid() {
+  gridUnit.forEach(gridSquare => gridSquare.classList.remove("mark"));
+}
 
 function askSize(userInput) {
   userInput = prompt("Choose your grid size");
