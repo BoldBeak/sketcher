@@ -25,6 +25,7 @@ const contSide = findSize(winHi, winWi);
 let contHeight = cont.setAttribute('style', `height: calc(.75 * (${contSide}px - 30px)); width: calc(.75 * (${contSide}px - 30px))`);
 
 // set number of squares per side
+const defaultRowCount = 16;
 let rowCount = 16;
 let columnCount = rowCount;
 
@@ -76,18 +77,30 @@ gridUnit.forEach(gridSquare => {
 
 
 //Add a button prompting for size
+// container for button
 const promptCont = document.createElement('div');
 promptCont.classList.add("promptContainer");
 // TODO: Assign properties to class in css rather than inline
 promptCont.setAttribute("style", `height: 12vh; width: calc(.75 * ${contSide}px); background-color: #011627; margin: auto`);
 
+// create button
 const promptButton = document.createElement('button');
-promptButton.innerHTML = "How many squares per side?";
+promptButton.innerText = "How many squares per side?";
+promptButton.addEventListener("click", () => rowCount = askSize());
 promptCont.appendChild(promptButton);
 
-
-
+// insert button container
 const docBody = document.querySelector("body");
-
-
 docBody.insertBefore(promptCont, cont);
+
+function askSize(userInput) {
+  userInput = prompt("Choose your grid size");
+  // TODO:  Change message
+  const reprompt = "Redo"
+  
+  if (userInput >= 16 && userInput <=  100) {
+    console.log(userInput);
+    return(userInput); 
+  } else
+    prompt(reprompt);
+};
