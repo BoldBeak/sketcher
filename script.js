@@ -1,7 +1,6 @@
 //--- TOP: Etch-a-Sketch ---
 
 //get size of window to determine length of side
-
 let winHi = window.visualViewport.height;
 console.log(winHi);
 let winWi = window.visualViewport.width;
@@ -25,56 +24,62 @@ const contSide = findSize(winHi, winWi);
 let contHeight = cont.setAttribute('style', `height: calc(.75 * (${contSide}px - 30px)); width: calc(.75 * (${contSide}px - 30px))`);
 
 // set number of squares per side
-const defaultRowCount = 16;
-let rowCount = 16;
-let columnCount = rowCount;
+let defaultRowCount = 16;
+createGrid(defaultRowCount);
+makeMark();
 
-// create rows
-for (let i = 0; i < rowCount; i++) {
-  const row = document.createElement("div");
-  let rowNum = "rowNum" + i;
 
-  // rowHeight subtracts 2 to offset width of border (top + bottom);
-  const rowHeight = (contHeight / rowCount) - 2;
+function createGrid(rowCount) {
+  let columnCount = rowCount;
+  // create rows
+  for (let i = 0; i < rowCount; i++) {
+    const row = document.createElement("div");
+    let rowNum = "rowNum" + i;
 
-  row.classList.add(`flexRow`, rowNum);
-  row.setAttribute("style", `height: ${rowHeight}px; flex: 1 1 0`);
-  cont.appendChild(row);
-}
+    // rowHeight subtracts 2 to offset width of border (top + bottom);
+    const rowHeight = (contHeight / rowCount) - 2;
 
-// subdivide rows into columns/squares
-let colContainer = document.querySelectorAll('.flexRow');
+    row.classList.add(`flexRow`, rowNum);
+    row.setAttribute("style", `height: ${rowHeight}px; flex: 1 1 0`);
+    cont.appendChild(row);
+  };
 
-// for each row (colContainer) ----->>
-for (let j = 0; j < colContainer.length; j++) {
+  // subdivide rows into columns/squares
+  let colContainer = document.querySelectorAll('.flexRow');
 
-  // add the number of divs specified by columnCount
-  for (let k = 0; k < columnCount; k++) {
-    // get height and width of each row
-    const colHeight = colContainer[j].clientHeight;
-    const colWidth = colContainer[j].clientWidth;
+  // for each row (colContainer) ----->>
+  for (let j = 0; j < colContainer.length; j++) {
 
-    const columnUnit = document.createElement("div");
-    let columnNum = "colNum" + k;
+    // add the number of divs specified by columnCount
+    for (let k = 0; k < columnCount; k++) {
+      // get height and width of each row
+      const colHeight = colContainer[j].clientHeight;
+      const colWidth = colContainer[j].clientWidth;
 
-    // width offset by 2 for borders
-    const columnUnitWidth = (colWidth / columnCount) - 2;
+      const columnUnit = document.createElement("div");
+      let columnNum = "colNum" + k;
 
-    columnUnit.classList.add("gridUnit", columnNum);
-    columnUnit.setAttribute("style", `height: ${colHeight}; width: ${columnUnitWidth}; flex: 1 1 0`);
-    colContainer[j].appendChild(columnUnit);
+      // width offset by 2 for borders
+      const columnUnitWidth = (colWidth / columnCount) - 2;
+
+      columnUnit.classList.add("gridUnit", columnNum);
+      columnUnit.setAttribute("style", `height: ${colHeight}; width: ${columnUnitWidth}; flex: 1 1 0`);
+      colContainer[j].appendChild(columnUnit);
+    }
   }
-}
+};
 
 // select squares and change their color
-let gridUnit = document.querySelectorAll("div.gridUnit");
 
-gridUnit.forEach(gridSquare => {
-  gridSquare.addEventListener('mouseover', () => {
-    gridSquare.classList.add("mark");
+function makeMark() {
+  const gridUnit = document.querySelectorAll("div.gridUnit");
+  
+  gridUnit.forEach(gridSquare => {
+    gridSquare.addEventListener('mouseover', () => {
+      gridSquare.classList.add("mark");
+    });
   });
-});
-
+};
 
 //Add a button prompting for size
 // container for button
@@ -86,26 +91,38 @@ promptCont.setAttribute("style", `height: 12vh; width: calc(.75 * ${contSide}px)
 // create button
 const promptButton = document.createElement('button');
 promptButton.innerText = "How many squares per side?";
-// promptButton.addEventListener("click", () => rowCount = askSize());
-promptButton.addEventListener("click", resetGrid);
+promptButton.classList.add("resetPromptBtn");
+promptButton.addEventListener('click', updateGrid);
 promptCont.appendChild(promptButton);
 
 // insert button container
 const docBody = document.querySelector("body");
 docBody.insertBefore(promptCont, cont);
 
-function resetGrid() {
-  gridUnit.forEach(gridSquare => gridSquare.classList.remove("mark"));
-}
+// function resetGridMark() {
+//   gridUnit.forEach(gridSquare => gridSquare.classList.remove("mark"));
+// }
 
-function askSize(userInput) {
-  userInput = prompt("Choose your grid size");
-  // TODO:  Change message
-  const reprompt = "Redo"
+
+function updateGrid() {
+  const gridUnit = document.querySelectorAll("div.gridUnit");
+  gridUnit.forEach(gridSquare => gridSquare.classList.remove("mark"));
   
-  if (userInput >= 16 && userInput <=  100) {
-    console.log(userInput);
-    return(userInput); 
-  } else
-    prompt(reprompt);
+  let rowCount = askSize();
+  cont.replaceChildren();
+  createGrid(rowCount);
+  makeMark();
+
+  function askSize() {
+    const userInput = prompt("Choose your grid size");
+    // TODO:  Change message
+    const reprompt = "Redo";
+
+    if (userInput >= 16 && userInput <= 100) {
+      console.log(userInput);
+      return +userInput;
+    } else
+      prompt(reprompt);
+  };
 };
+
