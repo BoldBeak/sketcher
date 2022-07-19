@@ -45,6 +45,14 @@ function createGrid(rowCount, columnCount) {
       colContainer[j].appendChild(columnUnit);
     }
   }
+
+  let gridUnit = document.querySelectorAll("div.gridUnit");
+
+gridUnit.forEach(gridSquare => {
+  gridSquare.addEventListener('mouseover', () => {
+    gridSquare.classList.add("mark");
+  });
+});
   };
 
 
@@ -76,16 +84,15 @@ clearButton.textContent = "Resize Grid";
 clearButton.addEventListener('click', setSize);
 // --- Begin Button Action Functions ---
 
-let gridUnit = document.querySelectorAll("div.gridUnit");
 
-gridUnit.forEach(gridSquare => {
-  gridSquare.addEventListener('mouseover', () => {
-    gridSquare.classList.add("mark");
-  });
-});
 
 function setSize() {
   rowCount = prompt("Choose the number of squares per row", "16");
+
+  while (cont.firstChild) {
+    cont.removeChild(cont.firstChild);
+  }
+
   createGrid(rowCount, columnCount);
   };
 
