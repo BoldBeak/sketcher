@@ -58,9 +58,14 @@ gridUnit.forEach(gridSquare => {
 const btnCont = document.createElement('div');
 btnCont.classList.add('btnContainer');
 
-// const clearBtn = document.createElement('button');
-// clearBtn.classList.add('clearButton');
-// clearBtn.innerHTML = "Reset";
+const buttonNames = ["reset", "resize", "multiColor", "fade"];
+for (let i = 0; i < buttonNames.length; i++) {
+  const newBtn = document.createElement('button');
+  
+  newBtn.classList.add(buttonNames[i]);
+  btnCont.appendChild(newBtn);
+};
+
 
 const btnContainer = document.querySelector('.btnContainer');
 const resetButton = document.querySelector('.clearButton');
@@ -69,6 +74,10 @@ const docBody = document.querySelector('body');
 
 docBody.insertBefore(btnCont, cont);
 
+document.querySelector('.reset').textContent = "Clear Grid";
+document.querySelector('.resize').textContent = "Resize Grid";
+document.querySelector('.multiColor').textContent = "Multi-Color Fun!";
+document.querySelector('.fade').textContent = "Fade Out";
 
 
 
