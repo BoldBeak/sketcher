@@ -58,11 +58,19 @@ gridUnit.forEach(gridSquare => {
 const btnCont = document.createElement('div');
 btnCont.classList.add('btnContainer');
 
-const clearBtn = document.createElement('button');
-clearBtn.classList.add('clearButton');
+// const clearBtn = document.createElement('button');
+// clearBtn.classList.add('clearButton');
+// clearBtn.innerHTML = "Reset";
 
-btnCont.appendChild(clearBtn);
+const btnContainer = document.querySelector('.btnContainer');
+const resetButton = document.querySelector('.clearButton');
 
-cont.insertAdjacentElement('beforebegin', btnCont);
+const docBody = document.querySelector('body');
+
+docBody.insertBefore(btnCont, cont);
+
+
+
+
 
 

@@ -14,6 +14,18 @@
   border: 12px solid #ff9f1c;
 }
 
+.btnContainer {
+  min-height: 2em;
+  width: 90vw;
+  box-sizing: border-box;
+  margin: auto;
+  border: 1px dashed #f71735
+
+}
+
+button {
+
+}
 .gridUnit {
   border: 1px dashed #011627;
 }
