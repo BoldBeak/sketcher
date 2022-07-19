@@ -6,8 +6,8 @@ const cont = document.querySelector('.container');
 const contHeight = cont.clientHeight;
 const contWidth = cont.clientWidth;
 
-let rowCount = 16;
-let columnCount = 16;
+let rowCount = setSize();
+let columnCount = rowCount;
 
 for (let i = 0; i < rowCount; i++) {
   const row = document.createElement("div");
@@ -44,13 +44,13 @@ for (let j = 0; j < colContainer.length; j++) {
   }
 }
 
-let gridUnit = document.querySelectorAll("div.gridUnit");
+// let gridUnit = document.querySelectorAll("div.gridUnit");
 
-gridUnit.forEach(gridSquare => {
-  gridSquare.addEventListener('mouseover', () => {
-    gridSquare.classList.add("mark");
-  });
-});
+// gridUnit.forEach(gridSquare => {
+//   gridSquare.addEventListener('mouseover', () => {
+//     gridSquare.classList.add("mark");
+//   });
+// });
 // --- End Grid Creation ---
 
 // --- Begin Button Creation ---
@@ -66,12 +66,7 @@ for (let i = 0; i < buttonNames.length; i++) {
   btnCont.appendChild(newBtn);
 };
 
-
-const btnContainer = document.querySelector('.btnContainer');
-const resetButton = document.querySelector('.clearButton');
-
 const docBody = document.querySelector('body');
-
 docBody.insertBefore(btnCont, cont);
 
 document.querySelector('.reset').textContent = "Clear Grid";
@@ -80,6 +75,20 @@ document.querySelector('.multiColor').textContent = "Multi-Color Fun!";
 document.querySelector('.fade').textContent = "Fade Out";
 
 
+// --- Begin Button Action Functions ---
+
+let gridUnit = document.querySelectorAll("div.gridUnit");
+
+gridUnit.forEach(gridSquare => {
+  gridSquare.addEventListener('mouseover', () => {
+    gridSquare.classList.add("mark");
+  });
+});
+
+function setSize() {
+  const initialSize = 16;
+  return initialSize;
+}
 
 
 
