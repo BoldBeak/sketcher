@@ -48,12 +48,12 @@ function createGrid(rowCount, columnCount) {
 
   let gridUnit = document.querySelectorAll("div.gridUnit");
 
-gridUnit.forEach(gridSquare => {
-  gridSquare.addEventListener('mouseover', () => {
-    gridSquare.classList.add("mark");
+  gridUnit.forEach(gridSquare => {
+    gridSquare.addEventListener('mouseover', () => {
+      gridSquare.classList.add("mark");
+    });
   });
-});
-  };
+};
 
 
 // --- End Grid Creation ---
@@ -82,12 +82,24 @@ document.querySelector('.fade').textContent = "Fade Out";
 clearButton = document.querySelector('.resize');
 clearButton.textContent = "Resize Grid";
 clearButton.addEventListener('click', setSize);
+
+
 // --- Begin Button Action Functions ---
 
-
+// function clearGrid() {
+//   if ()
+// }
 
 function setSize() {
-  rowCount = prompt("Choose the number of squares per row", "16");
+  let rowInput = Number(prompt("Choose the number of squares per row", "16"));
+  
+  if (rowInput < 16) {
+    alert("Please choose a number between 16 and 100");
+  } else if (rowInput > 100) {
+    alert("Please choose a number between 16 and 100");
+  } else {
+    rowCount = rowInput;
+  }
 
   while (cont.firstChild) {
     cont.removeChild(cont.firstChild);
