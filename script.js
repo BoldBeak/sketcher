@@ -74,21 +74,31 @@ for (let i = 0; i < buttonNames.length; i++) {
 const docBody = document.querySelector('body');
 docBody.insertBefore(btnCont, cont);
 
-document.querySelector('.reset').textContent = "Clear Grid";
 // document.querySelector('.resize').textContent = "Resize Grid";
 document.querySelector('.multiColor').textContent = "Multi-Color Fun!";
 document.querySelector('.fade').textContent = "Fade Out";
 
-clearButton = document.querySelector('.resize');
-clearButton.textContent = "Resize Grid";
-clearButton.addEventListener('click', setSize);
+const clearButton = document.querySelector('.reset')
+clearButton.textContent = "Clear Grid";
+clearButton.addEventListener('click', clearGrid);
+
+
+const resizeButton = document.querySelector('.resize');
+resizeButton.textContent = "Resize Grid";
+resizeButton.addEventListener('click', setSize);
 
 
 // --- Begin Button Action Functions ---
 
-// function clearGrid() {
-//   if ()
-// }
+function clearGrid() {
+  let gridUnit = document.querySelectorAll("div.gridUnit");
+
+  gridUnit.forEach(gridSquare => {
+   if (gridSquare.classList.contains("mark")) {
+     gridSquare.classList.remove("mark") 
+   } 
+   })
+  }
 
 function setSize() {
   let rowInput = Number(prompt("Choose the number of squares per row", "16"));
