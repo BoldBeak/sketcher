@@ -82,7 +82,7 @@ const resizeButton = document.querySelector('.resize');
 resizeButton.textContent = "Resize Grid";
 resizeButton.addEventListener('click', setSize);
 
-const multiButton = document.querySelector('.multicolor');
+const multiButton = document.querySelector('.multiColor');
 multiButton.textContent = "Multi-Color Fun!";
 // multiButton.addEventListener('click', setMulti);
 
