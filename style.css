@@ -37,11 +37,12 @@ button {
 }
 .gridUnit {
   border: 1px dashed #011627;
+  background-color: #41EAD4;
 }
 .flexRow {
   display: flex;
   flex-direction: row;
-  background-color: #41EAD4;
+  /*background-color: #41EAD4; */
   /* border: 1px solid #F71735; */
 }
 
