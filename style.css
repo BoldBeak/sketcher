@@ -28,9 +28,12 @@
 button {
   background-color: #ff9f1c;
   border: none;
-  width: 8em;
-  padding: 15px;
+  width: 6em;
+  padding: 12px;
   border-radius: 5px;
+  font-family: 'Figtree', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-size: large;
 }
 .gridUnit {
   border: 1px dashed #011627;
