@@ -74,19 +74,21 @@ for (let i = 0; i < buttonNames.length; i++) {
 const docBody = document.querySelector('body');
 docBody.insertBefore(btnCont, cont);
 
-// document.querySelector('.resize').textContent = "Resize Grid";
-document.querySelector('.multiColor').textContent = "Multi-Color Fun!";
-document.querySelector('.fade').textContent = "Fade Out";
-
 const clearButton = document.querySelector('.reset')
 clearButton.textContent = "Clear Grid";
 clearButton.addEventListener('click', clearGrid);
-
 
 const resizeButton = document.querySelector('.resize');
 resizeButton.textContent = "Resize Grid";
 resizeButton.addEventListener('click', setSize);
 
+const multiButton = document.querySelector('.multicolor');
+multiButton.textContent = "Multi-Color Fun!";
+// multiButton.addEventListener('click', setMulti);
+
+const fadeButton = document.querySelector('.fade');
+fadeButton.textContent = "Fade Out";
+// fadeButton.addEventListener('click', setFade);
 
 // --- Begin Button Action Functions ---
 
@@ -109,6 +111,7 @@ function setSize() {
     alert("Please choose a number between 16 and 100");
   } else {
     rowCount = rowInput;
+    columnCount = rowCount;
   }
 
   while (cont.firstChild) {
@@ -118,5 +121,12 @@ function setSize() {
   createGrid(rowCount, columnCount);
   };
 
+// function setMulti() {
+
+// };
+
+// function setFade() {
+
+// };
 
 
