@@ -63,7 +63,7 @@ function createGrid(rowCount, columnCount) {
 const btnCont = document.createElement('div');
 btnCont.classList.add('btnContainer');
 
-const buttonNames = ["reset", "resize", "multiColor", "fade"];
+const buttonNames = ["clear", "resize", "multiColor", "fade" ,"reset"];
 for (let i = 0; i < buttonNames.length; i++) {
   const newBtn = document.createElement('button');
   
@@ -74,7 +74,7 @@ for (let i = 0; i < buttonNames.length; i++) {
 const docBody = document.querySelector('body');
 docBody.insertBefore(btnCont, cont);
 
-const clearButton = document.querySelector('.reset')
+const clearButton = document.querySelector('.clear')
 clearButton.textContent = "Clear Grid";
 clearButton.addEventListener('click', clearGrid);
 
@@ -89,6 +89,9 @@ multiButton.textContent = "Multi-Color Fun!";
 const fadeButton = document.querySelector('.fade');
 fadeButton.textContent = "Fade Out";
 // fadeButton.addEventListener('click', setFade);
+
+const resetButton = document.querySelector('.reset');
+resetButton.textContent = "Reset";
 
 // --- Begin Button Action Functions ---
 
