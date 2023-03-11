@@ -92,6 +92,7 @@ fadeButton.textContent = "Fade Out";
 
 const resetButton = document.querySelector('.reset');
 resetButton.textContent = "Reset";
+resetButton.addEventListener('click', resetGrid);
 
 // --- Begin Button Action Functions ---
 
@@ -131,5 +132,13 @@ function setSize() {
 // function setFade() {
 
 // };
+
+function resetGrid() {
+  while (cont.firstChild) {
+    cont.removeChild(cont.firstChild);
+  }
+
+  createGrid(16, 16);
+}
 
 
