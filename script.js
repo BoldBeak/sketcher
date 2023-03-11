@@ -83,7 +83,7 @@ resizeButton.textContent = "Resize Grid";
 resizeButton.addEventListener('click', setSize);
 
 const multiButton = document.querySelector('.multiColor');
-multiButton.textContent = "Multi-Color Fun!";
+multiButton.textContent = "Multi-Color";
 // multiButton.addEventListener('click', setMulti);
 
 const fadeButton = document.querySelector('.fade');
